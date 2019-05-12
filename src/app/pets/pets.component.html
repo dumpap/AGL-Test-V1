@@ -1,0 +1,15 @@
+<div class="container custom-container">
+  <div class="col-md-12">
+    <h3 class="mb-3 text-center">Person gender with Pets</h3>
+    <div id='gender' *ngFor="let person of Person | groupBy:'gender' | pairs ">
+      <h3>{{person[0]}}</h3>
+      <div>
+        <div *ngFor="let val of person[1]">
+          <ul *ngFor="let pet of val.pets | filterBy: userFilter | orderBy: order">
+            <li>{{ pet.name }}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
